@@ -1,18 +1,26 @@
-const cacheDirs = `/opt/buildhome/.cache/firebase/emulators`;
+const path = require("path");
+const { cwd } = require("process");
+const { homedir } = require("os");
+
+const getCacheDir = () => {
+  const absoluteCacheDir = path.resolve(homedir(), ".cache/firebase/emulators");
+  const netlifyBuildPluginResolvesFrom = cwd();
+  return path.relative(netlifyBuildPluginResolvesFrom, absoluteCacheDir);
+};
 
 module.exports = {
-  async onPreBuild({ utils }) {
-    if (await utils.cache.restore(cacheDirs)) {
-      console.log('Found cached Firebase emulators!');
+  async onPreBuild({ utils: { cache } }) {
+    if (await cache.restore(getCacheDir())) {
+      console.log("Found cached Firebase emulators!");
     } else {
-      console.log('No cached Firebase emulators found.');
+      console.log("No cached Firebase emulators found.");
     }
   },
-  async onPostBuild({ utils }) {
-    if (await utils.cache.save(cacheDirs)) {
-      console.log('Cached the Firebase emulators to speed up future builds!');
+  async onPostBuild({ utils: { cache } }) {
+    if (await cache.save(getCacheDir())) {
+      console.log("Cached the Firebase emulators to speed up future builds!");
     } else {
-      console.log('No Firebase emulators found.');
+      console.log("No Firebase emulators found.");
     }
   },
 };
