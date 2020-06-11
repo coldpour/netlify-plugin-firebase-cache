@@ -1,0 +1,17 @@
+{
+  "name": "netlify-plugin-firebase-cache",
+  "version": "0.0.1",
+  "description": "Persist the Firebase emulators between Netlify builds for moderate build speed improvements!",
+  "main": "index.js",
+  "repository": "https://github.com/coldpour/netlify-plugin-firebase-cache.git",
+  "bugs": {
+    "url": "https://github.com/coldpour/netlify-plugin-firebase-cache/issues"
+  },
+  "author": "Mike Holm <coldpour@gmail.com> (https://mikeholmdev.com)",
+  "license": "MIT",
+  "keywords": [
+    "netlify",
+    "netlify-plugin"
+  ],
+  "dependencies": {}
+}
