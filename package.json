@@ -1,6 +1,6 @@
 {
   "name": "netlify-plugin-firebase-cache",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Persist the Firebase emulators between Netlify builds for moderate build speed improvements!",
   "main": "index.js",
   "repository": "https://github.com/coldpour/netlify-plugin-firebase-cache.git",
